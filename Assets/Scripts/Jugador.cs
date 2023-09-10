@@ -8,11 +8,12 @@ public class Jugador : Entity
 {
 
     [Header("Valores de jugador")]
+    
     public static Jugador instance;
     public int vidasMax;
     [SerializeField] int _vidasActuales;
     public float concentracionTime;
-    [SerializeField] public float _concentracionTimeCurr;
+    [SerializeField] public float concentracionTimeCurr;
     public Transform target;
     [SerializeField] float _repImpactoMax;
     public Vector3 dir;
@@ -30,8 +31,8 @@ public class Jugador : Entity
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, maxSpeed);
         }
-        _concentracionTimeCurr += Time.deltaTime;
-        if (_concentracionTimeCurr > concentracionTime && _runEmpezada)
+        concentracionTimeCurr += Time.deltaTime;
+        if (concentracionTimeCurr > concentracionTime && _runEmpezada)
         {
             rb.useGravity = true;
             print("tiempo fuera");
@@ -50,8 +51,9 @@ public class Jugador : Entity
         
     }
 
-    public void Impacto()
+    public void Impacto(Vector3 target)
     {
+        dir = target - transform.position;
         _runEmpezada = true;
         if (dir.y < 0)
         {

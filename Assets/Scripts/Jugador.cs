@@ -48,30 +48,18 @@ public class Jugador : Entity
 
     public override void Morir()
     {
-        
+        print("Morir");
     }
 
     public void Impacto(Vector3 target)
     {
-        dir = target - transform.position;
+        
+        dir = (target - transform.position).normalized;
         _runEmpezada = true;
-        if (dir.y < 0)
-        {
-            ImpulsoDir.y = ImpulsoDistancia;
-        }
-        else
-        {
-            ImpulsoDir.y = -ImpulsoDistancia;
-        }
+       
+        ImpulsoDir.y = -dir.y * ImpulsoDistancia;
+        ImpulsoDir.x = -dir.x * ImpulsoDistancia;
 
-        if(dir.x < 0)
-        {
-            ImpulsoDir.x = ImpulsoDistancia;
-        }
-        else
-        {
-            ImpulsoDir.x = -ImpulsoDistancia;
-        }
         print("Impacta");
 
         for (float i = 0; i < _repImpactoMax; i++)

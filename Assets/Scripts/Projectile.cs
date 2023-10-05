@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : MonoBehaviour, IDashable
 {
-    [SerializeField] private float _speed = 10f, _maxDistance = 50f, _currentDistance = 0f;
+    [SerializeField] private float _speed = 0.1f, _maxDistance = 50f, _currentDistance = 0f;
 
     void Update()
     {
         var distanceToTravel = _speed * Time.deltaTime;
 
-        transform.position += transform.up * distanceToTravel;
+        transform.position += transform.forward * distanceToTravel;
 
         _currentDistance += distanceToTravel;
         if(_currentDistance > _maxDistance)
@@ -32,9 +32,23 @@ public class Projectile : MonoBehaviour
         }
         p.gameObject.SetActive(active);
     }
+    public void ActiveDash()
+    {
+        Jugador.instance.target = transform;
+        Jugador.instance.rb.useGravity = false;
+        Jugador.instance.rb.velocity = Vector3.zero;
+    }
 
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<Piso>()) ProjectileFactory.Instance.ReturnProjectile(this);
+
+        if(collision.collider.GetComponent<Jugador>())
+        {
+            collision.collider.GetComponent<Jugador>().Morir();
+            collision.collider.GetComponent<Jugador>().rb.velocity = Vector3.zero;
+            ProjectileFactory.Instance.ReturnProjectile(this);
+        }
+        
     }
 }

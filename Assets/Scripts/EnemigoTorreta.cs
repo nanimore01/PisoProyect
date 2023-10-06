@@ -15,7 +15,8 @@ public class EnemigoTorreta : EnemigoBase
     
     void Start()
     {
-        
+        _tamaño = FlyWeightPointer.EnemigoTorreta.weight;
+        _monedasDadas = FlyWeightPointer.EnemigoTorreta.monedasDadas;
     }
 
     // Update is called once per frame

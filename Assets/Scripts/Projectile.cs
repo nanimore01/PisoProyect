@@ -34,6 +34,7 @@ public class Projectile : MonoBehaviour, IDashable
     }
     public void ActiveDash()
     {
+        Jugador.instance._isDashing = true;
         Jugador.instance.target = transform;
         Jugador.instance.rb.useGravity = false;
         Jugador.instance.rb.velocity = Vector3.zero;
@@ -45,7 +46,9 @@ public class Projectile : MonoBehaviour, IDashable
 
         if(collision.collider.GetComponent<Jugador>())
         {
-            collision.collider.GetComponent<Jugador>().Morir();
+            if(collision.collider.gameObject.GetComponent<Jugador>()._isDashing!)
+                collision.collider.GetComponent<Jugador>().Morir();
+
             collision.collider.GetComponent<Jugador>().rb.velocity = Vector3.zero;
             ProjectileFactory.Instance.ReturnProjectile(this);
         }

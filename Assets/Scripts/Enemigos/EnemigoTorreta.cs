@@ -28,7 +28,7 @@ public class EnemigoTorreta : EnemigoBase
         }
 
         transform.Rotate(new Vector3(0, _velocidadDeRotacion * Time.deltaTime, 0));
-        //transform.LookAt(_target.position);
+        
         timer += Time.deltaTime;
         _ray = new Ray(_spawnPos.transform.position, _spawnPos.forward);
         Debug.DrawRay(_ray.origin, _ray.direction);

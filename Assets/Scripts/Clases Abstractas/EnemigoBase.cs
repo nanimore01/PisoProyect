@@ -16,6 +16,7 @@ public class EnemigoBase : Entity, IDashable
 
     public void ActiveDash()
     {
+        Jugador.instance._isDashing = true;
         Jugador.instance.target = transform;
         Jugador.instance.rb.useGravity = false;
         Jugador.instance.rb.velocity = Vector3.zero;

@@ -15,11 +15,13 @@ public class Jugador : Entity
     public float concentracionTime;
     [SerializeField] public float concentracionTimeCurr;
     public Transform target;
+    public Transform targetNone;
     [SerializeField] float _repImpactoMax;
     public Vector3 dir;
     public Vector3 ImpulsoDir;
     public float ImpulsoDistancia;
     bool _runEmpezada = false;
+    public bool _isDashing = false;
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -39,8 +41,8 @@ public class Jugador : Entity
         }
 
     }
-
     
+
     private void Start()
     {
         rb.useGravity = false;
@@ -51,11 +53,12 @@ public class Jugador : Entity
         print("Morir");
     }
 
-    public void Impacto(Vector3 target)
+    public void Impacto(Vector3 Objetivo)
     {
         
-        dir = (target - transform.position).normalized;
+        dir = (Objetivo - transform.position).normalized;
         _runEmpezada = true;
+        _isDashing = false;
        
         ImpulsoDir.y = -dir.y * ImpulsoDistancia;
         ImpulsoDir.x = -dir.x * ImpulsoDistancia;
@@ -67,6 +70,8 @@ public class Jugador : Entity
             print("Caida lenta");
             rb.AddForce(ImpulsoDir);
         }
+        //target = targetNone;
+
     }
     
     

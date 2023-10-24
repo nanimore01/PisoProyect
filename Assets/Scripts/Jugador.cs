@@ -59,6 +59,7 @@ public class Jugador : Entity
         dir = (Objetivo - transform.position).normalized;
         _runEmpezada = true;
         _isDashing = false;
+        concentracionTimeCurr = 0;
        
         ImpulsoDir.y = -dir.y * ImpulsoDistancia;
         ImpulsoDir.x = -dir.x * ImpulsoDistancia;
@@ -70,8 +71,8 @@ public class Jugador : Entity
             print("Caida lenta");
             rb.AddForce(ImpulsoDir);
         }
-        //target = targetNone;
-
+        //target = default;
+        print("A");
     }
     
     

@@ -4,25 +4,39 @@ using UnityEngine;
 
 public class EnemigoTorreta : EnemigoBase
 {
+    FSM _fsm;
+
     [SerializeField] private Transform _target;
     [SerializeField] private Transform _spawnPos = default;
     [SerializeField] private Ray _ray;
     [SerializeField] private RaycastHit _hit;
     [SerializeField] private float _velocidadDeRotacion;
-    public float CoolDown = 2;
-    public float timer = 0;
-    // Start is called before the first frame update
+    public float coolDown = 2;
+    
+
+    
     
     void Start()
     {
         _tamaño = FlyWeightPointer.EnemigoTorreta.weight;
         _monedasDadas = FlyWeightPointer.EnemigoTorreta.monedasDadas;
+
+        _fsm = new FSM();
+
+        _fsm.CreateState("Patrol", new PatrolTorreta(_fsm, transform, _velocidadDeRotacion, _spawnPos, _ray, _hit));
+        _fsm.CreateState("Shot", new ShotTargetTorreta(_fsm, transform, _spawnPos, coolDown));
+
+        _fsm.ChangeState("Patrol");
+
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        if(_target)
+
+        _fsm.Execute();
+
+       /* if(_target)
         {
             transform.LookAt(_target.position);
         }
@@ -48,7 +62,11 @@ public class EnemigoTorreta : EnemigoBase
 
 
         }
+       
+        Voy a tener esto comentado por si las dudas
+        
 
+        */
         
     }
 

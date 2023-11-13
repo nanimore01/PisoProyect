@@ -8,14 +8,14 @@ public class Jugador : Entity
 {
 
     [Header("Valores de jugador")]
-    
+    Jugador_PlayerPref _playerPrefs;
+
     public static Jugador instance;
     public int vidasMax;
     [SerializeField] int _vidasActuales;
     public float concentracionTime;
     [SerializeField] public float concentracionTimeCurr;
     public Transform target;
-    public Transform targetNone;
     [SerializeField] float _repImpactoMax;
     public Vector3 dir;
     public Vector3 ImpulsoDir;
@@ -46,6 +46,15 @@ public class Jugador : Entity
     private void Start()
     {
         rb.useGravity = false;
+
+        _playerPrefs = new Jugador_PlayerPref(vidasMax , maxSpeed ,concentracionTime);
+
+        _playerPrefs.Stats();
+
+        maxSpeed = PlayerPrefs.GetFloat("Velocidad de Dash");
+        concentracionTime = PlayerPrefs.GetFloat("Tiempo de concentracion");
+        vidasMax = PlayerPrefs.GetInt("Vidas maximas");
+
     }
 
     public override void Morir()

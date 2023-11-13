@@ -42,14 +42,21 @@ public class ProyectilNexo : MonoBehaviour, IDashable
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<Piso>()) NexoBulletFactory.Instance.ReturnProjectile(this);
+        if (collision.gameObject.GetComponent<Nexo>())
+        {
+            collision.gameObject.GetComponent<Nexo>().dano();
+            NexoBulletFactory.Instance.ReturnProjectile(this);
+        }
+
 
         if (collision.collider.GetComponent<Jugador>())
         {
+            collision.collider.GetComponent<Jugador>().target = null;
             collision.collider.GetComponent<Jugador>().rb.velocity = Vector3.zero;
             collision.collider.GetComponent<Jugador>().Impacto(transform.position);
             NexoBulletFactory.Instance.ReturnProjectile(this);
         }
 
     }
+   
 }

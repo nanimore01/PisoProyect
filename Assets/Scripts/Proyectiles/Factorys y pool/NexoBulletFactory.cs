@@ -19,14 +19,6 @@ public class NexoBulletFactory : MonoBehaviour
         pool = new Pool<ProyectilNexo>(ProjectileCreator, ProyectilNexo.TurnOnOff, stock);
     }
 
-    void Update()
-    {
-        /*if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ProjectileCreator();
-        }*/
-    }
-
     public ProyectilNexo ProjectileCreator()
     {
         return Instantiate(projectilePrefab);

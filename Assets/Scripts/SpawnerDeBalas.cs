@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SpawnerDeBalas : MonoBehaviour
 {
-    public GameObject balas, nexo;
+    private int _balaIndex;
+    public ProyectilNexo[] balas;
     public Transform xRangeLeft, xRangeRight, yRangeUp, yRangeDown;
     public float timeSpawn, repeatSpawnRate;
     

@@ -33,13 +33,25 @@ public class SpawnerDeBalas : MonoBehaviour
 
     public void SpawnEnemies()
     {
+        int NumeroRandom = Random.Range(0, 100);
+
         Vector3 spawnPosition = new Vector3(0, 0, 0);
 
         spawnPosition = new Vector3(Random.Range(xRangeLeft.position.x, xRangeRight.position.x), Random.Range(yRangeDown.position.y, yRangeUp.position.y), 0);
-        var p = NexoBulletFactory.Instance.pool.GetObject();
-        p.transform.position = spawnPosition;
         
-
+        if(NumeroRandom > 10)
+        {
+            var p = NexoBulletFactory.Instance.pool.GetObject();
+            p.transform.position = spawnPosition;
+        }
+        else if(NumeroRandom < 10) 
+        {
+            var b = NexoBombaFactory.Instance.pool.GetObject();
+            b.transform.position = spawnPosition;
+        }
+             
+        
+               
     }
 
    

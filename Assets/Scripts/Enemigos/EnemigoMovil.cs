@@ -2,13 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemigoMovil : MonoBehaviour
+public class EnemigoMovil : EnemigoBase
 {
     Vector3 _velocity;
     public float maxVelocity;
-    public float maxForce;
     public Transform[] wayPoints;
     public int _currentWaypoint;
+
+    public void Start()
+    {
+        _tamaño = FlyWeightPointer.EnemigoMovil.weight;
+        _monedasDadas = FlyWeightPointer.EnemigoMovil.monedasDadas;
+    }
+
     public Vector3 velocity
     {
         get { return _velocity; }

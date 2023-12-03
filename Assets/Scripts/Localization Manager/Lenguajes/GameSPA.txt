@@ -1,0 +1,11 @@
+{
+"MenuTextoTienda" : "Tienda",
+"MenuBotonJugar" : "Jugar",
+"MenuBotonOpciones" : "Opciones",
+"OpcionesTextoOpciones" : "Opciones",
+"OpcionesTextoIdioma" : "Idioma",
+"OpcionesTextoVolumen" : "Volumen",
+"OpcionesTextoMaster" : "Master",
+"OpcionesTextoMusica" : "Musica",
+"OpcionesTextoSFX" : "SFX"
+}

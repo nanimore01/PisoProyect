@@ -3,25 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class ProyectilNexo : MonoBehaviour, IDashable
+public class ProyectilNexo : ProyectilNexoBase
 {
-    [SerializeField] private float _maxDistance = 5f, _currentDistance = 0f;
-    public float speed = 0.01f;
-
     void Update()
     {
-        var distanceToTravel = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position,Nexo.instance.transform.position, speed);
-        _currentDistance += distanceToTravel;
+        Movimiento();
         if (_currentDistance > _maxDistance)
         {
             NexoBulletFactory.Instance.ReturnProjectile(this);
         }
-    }
-
-    private void Reset()
-    {
-        _currentDistance = 0;
     }
 
     public static void TurnOnOff(ProyectilNexo p, bool active = true)
@@ -32,13 +22,7 @@ public class ProyectilNexo : MonoBehaviour, IDashable
         }
         p.gameObject.SetActive(active);
     }
-    public void ActiveDash()
-    {
-        Jugador.instance._isDashing = true;
-        Jugador.instance.target = transform;
-        Jugador.instance.rb.useGravity = false;
-        Jugador.instance.rb.velocity = Vector3.zero;
-    }
+   
 
     public void OnCollisionEnter(Collision collision)
     {

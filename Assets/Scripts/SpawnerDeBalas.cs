@@ -37,6 +37,7 @@ public class SpawnerDeBalas : MonoBehaviour
 
         spawnPosition = new Vector3(Random.Range(xRangeLeft.position.x, xRangeRight.position.x), Random.Range(yRangeDown.position.y, yRangeUp.position.y), 0);
         var p = NexoBulletFactory.Instance.pool.GetObject();
+        p.transform.parent = NexoBulletFactory.Instance.transform;
         p.transform.position = spawnPosition;
         
 

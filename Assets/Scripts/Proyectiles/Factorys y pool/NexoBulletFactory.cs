@@ -21,7 +21,7 @@ public class NexoBulletFactory : MonoBehaviour
 
     public ProyectilNexo ProjectileCreator()
     {
-        return Instantiate(projectilePrefab);
+        return Instantiate(projectilePrefab, transform);
     }
 
     public void ReturnProjectile(ProyectilNexo p)

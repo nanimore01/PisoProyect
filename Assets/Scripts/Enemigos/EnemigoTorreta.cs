@@ -18,8 +18,8 @@ public class EnemigoTorreta : EnemigoBase
     
     void Start()
     {
-        _tamaño = FlyWeightPointer.EnemigoTorreta.weight;
-        _monedasDadas = FlyWeightPointer.EnemigoTorreta.monedasDadas;
+        _tamaño = StatsEnemigoTorreta.EnemigoTorreta.weight;
+        _monedasDadas = StatsEnemigoTorreta.EnemigoTorreta.monedasDadas;
 
         _fsm = new FSM();
 

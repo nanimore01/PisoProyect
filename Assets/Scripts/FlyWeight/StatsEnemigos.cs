@@ -5,5 +5,5 @@ using UnityEngine;
 public class StatsEnemigos 
 {
     public int monedasDadas;
-    public float weight;
+    public float size;
 }

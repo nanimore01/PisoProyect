@@ -7,7 +7,7 @@ public class EnemigoBase : Entity, IDashable
 {
     [Header("Valores")]
     [SerializeField] protected int _monedasDadas;
-    [SerializeField] protected float _tamaño;
+    [SerializeField] protected float _size;
 
     public override void Morir()
     {

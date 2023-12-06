@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatsEnemigoTorreta 
+public class StatsEnemigoTorreta : StatsEnemigos 
 {
-    public static readonly StatsEnemigos EnemigoTorreta = new StatsEnemigos
-    {
-        monedasDadas = 5,
-        weight = 1,
-    };
+    public float velocidadDeRotacion;
+    public float coolDown;
 }

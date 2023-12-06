@@ -29,7 +29,7 @@ public class ScreenPause : MonoBehaviour, IScreen
     public void BTN_Back()
     {
         _result = "Back";
-
+        
         ScreenManager.Instance.Pop();
     }
 

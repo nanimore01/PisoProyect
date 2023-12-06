@@ -5,11 +5,14 @@ using UnityEngine;
 public class Nexo : MonoBehaviour
 {
     public static Nexo instance;
-    private int _vida = 1;
-    public int vidaActual { get { return _vida; } }
+    [SerializeField] private int _vidaMax = 5;
+    [SerializeField] private int _vida;
+    [SerializeField] TextoActualizable texto;
 
     private void Start()
     {
+        _vida = _vidaMax;
+        texto.UpdateHUDActualInt(_vida, _vidaMax, " Nexo");
         if (instance == null)
             instance = this;
     }
@@ -17,9 +20,10 @@ public class Nexo : MonoBehaviour
     public void dano()
     {
         _vida--;
-
+        texto.UpdateHUDActualInt(_vida, _vidaMax, " Nexo");
         if (_vida <= 0)
         {
+            print("Sufri mucho daño");
             Jugador.instance.Morir();  
         }
     }

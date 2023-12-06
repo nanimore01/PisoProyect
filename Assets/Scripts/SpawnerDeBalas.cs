@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class SpawnerDeBalas : MonoBehaviour
 {
-    private int _balaIndex;
-    public ProyectilNexo[] balas;
+    
     public Transform xRangeLeft, xRangeRight, yRangeUp, yRangeDown;
     public float timeSpawn, repeatSpawnRate;
     
@@ -34,11 +33,23 @@ public class SpawnerDeBalas : MonoBehaviour
     public void SpawnEnemies()
     {
         Vector3 spawnPosition = new Vector3(0, 0, 0);
+        int Probabilidad = Random.Range(0, 101);
 
         spawnPosition = new Vector3(Random.Range(xRangeLeft.position.x, xRangeRight.position.x), Random.Range(yRangeDown.position.y, yRangeUp.position.y), 0);
         var p = NexoBulletFactory.Instance.pool.GetObject();
-        p.transform.parent = NexoBulletFactory.Instance.transform;
-        p.transform.position = spawnPosition;
+        var b = NexoBombaFactory.Instance.pool.GetObject();
+
+       
+        if(Probabilidad > 20)
+        {
+            p.transform.parent = NexoBulletFactory.Instance.transform;
+            p.transform.position = spawnPosition;
+        }
+        else if(Probabilidad < 20)
+        {
+            b.transform.parent = NexoBombaFactory.Instance.transform;
+            b.transform.position = spawnPosition;
+        }
         
 
     }

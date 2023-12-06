@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 
 public class Jugador : Entity
 {
 
     [Header("Valores de jugador")]
-    Jugador_PlayerPref _playerPrefs;
-
+    
+    [SerializeField]Animator _animator;
     public static Jugador instance;
     public int vidasMax;
     [SerializeField] int _vidasActuales;
@@ -22,13 +23,19 @@ public class Jugador : Entity
     public float ImpulsoDistancia;
     bool _runEmpezada = false;
     public bool _isDashing = false;
+    public int monedas;
     private void Awake()
     {
+
         if (instance == null) instance = this;
+
+        Load();
     }
 
     public void Update()
     {
+        
+        _animator.SetBool("IsDashing", _isDashing);
         if (target != null)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, maxSpeed);
@@ -47,24 +54,17 @@ public class Jugador : Entity
     {
         rb.useGravity = false;
 
-        _playerPrefs = new Jugador_PlayerPref(vidasMax , maxSpeed ,concentracionTime);
-
-        _playerPrefs.Stats();
-
-        maxSpeed = PlayerPrefs.GetFloat("Velocidad de Dash");
-        concentracionTime = PlayerPrefs.GetFloat("Tiempo de concentracion");
-        vidasMax = PlayerPrefs.GetInt("Vidas maximas");
-
+        
     }
 
     public override void Morir()
     {
         print("Morir");
+        SceneManager.LoadScene(3);
     }
 
     public void Impacto(Vector3 Objetivo)
     {
-        
         dir = (Objetivo - transform.position).normalized;
         _runEmpezada = true;
         _isDashing = false;
@@ -83,6 +83,14 @@ public class Jugador : Entity
         //target = default;
         print("A");
     }
+
     
-    
+
+    public void Load()
+    {
+        maxSpeed = PlayerPrefs.GetFloat("Velocidad de Dash");
+        concentracionTime = PlayerPrefs.GetFloat("Tiempo de concentracion");
+        vidasMax = PlayerPrefs.GetInt("Vidas maximas");
+    }
+
 }

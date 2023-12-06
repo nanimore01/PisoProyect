@@ -20,7 +20,7 @@ public class NexoBombaFactory : MonoBehaviour
 
     public ProyectilNexoBomba ProjectileCreator()
     {
-        return Instantiate(projectilePrefab);
+        return Instantiate(projectilePrefab, transform);
     }
 
     public void ReturnProjectile(ProyectilNexoBomba p)

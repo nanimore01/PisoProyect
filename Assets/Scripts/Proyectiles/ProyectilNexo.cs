@@ -5,6 +5,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class ProyectilNexo : ProyectilNexoBase
 {
+    
     void Update()
     {
         Movimiento();
@@ -35,6 +36,10 @@ public class ProyectilNexo : ProyectilNexoBase
 
         if (collision.collider.GetComponent<Jugador>())
         {
+            DatosJugador.Instance.MonedasAgarrada(monedasDadas);
+            
+            _audioSource.clip = _golpe;
+            _audioSource.Play();
             collision.collider.GetComponent<Jugador>().target = null;
             collision.collider.GetComponent<Jugador>().rb.velocity = Vector3.zero;
             collision.collider.GetComponent<Jugador>().Impacto(transform.position);

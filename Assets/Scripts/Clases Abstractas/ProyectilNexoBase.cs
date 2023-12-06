@@ -6,7 +6,9 @@ public class ProyectilNexoBase : MonoBehaviour, IDashable
 {
     [SerializeField] protected float _maxDistance = 5f, _currentDistance = 0f;
     public float speed = 0.01f;
-
+    [SerializeField] protected int monedasDadas;
+    [SerializeField] protected AudioSource _audioSource;
+    [SerializeField] protected AudioClip _golpe;
     public void Movimiento()
     {
         var distanceToTravel = speed * Time.deltaTime;

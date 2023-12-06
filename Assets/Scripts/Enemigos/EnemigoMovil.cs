@@ -11,8 +11,8 @@ public class EnemigoMovil : EnemigoBase
 
     public void Start()
     {
-        _tamaño = StatsEnemigoMovil.EnemigoMovil.weight;
-        _monedasDadas = StatsEnemigoMovil.EnemigoMovil.monedasDadas;
+        _size = StatsUnidadesEnemigas.EnemigoMovil.size;
+        _monedasDadas = StatsUnidadesEnemigas.EnemigoMovil.monedasDadas;
     }
 
     public Vector3 velocity

@@ -7,8 +7,8 @@ public class EnemigoBasico : EnemigoBase
     // Start is called before the first frame update
     void Start()
     {
-        _tamaño = StatsEnemigoBasico.EnemigoBasico.weight;
-        _monedasDadas = StatsEnemigoBasico.EnemigoBasico.monedasDadas;
+        _size = StatsUnidadesEnemigas.EnemigoBasico.size;
+        _monedasDadas = StatsUnidadesEnemigas.EnemigoBasico.monedasDadas;
     }
 
     

@@ -13,7 +13,7 @@ public class DatosJugador : MonoBehaviour
     public float tiempoDeConcentracion = 3;
     public int monedas = 1;
     public int monedasConseguidasPorHordas;
-    public TextMeshProUGUI textoMonedas;
+    
     private void Awake()
     {
         Save();
@@ -52,11 +52,7 @@ public class DatosJugador : MonoBehaviour
         monedasConseguidasPorHordas = 0;
     }
 
-    public void UpdateText()
-    {
-        textoMonedas.text = "Conseguiste " + monedasConseguidasPorHordas + "$ en esta run";
-    }
-
+    
     public void MonedasAgarrada(int monedasObtenidas)
     {
         print("Moneda Agarrada : " + monedasObtenidas);

@@ -27,6 +27,7 @@ public class ProyectilNexo : ProyectilNexoBase
 
     public void OnCollisionEnter(Collision collision)
     {
+        
         if (collision.gameObject.GetComponent<Nexo>())
         {
             collision.gameObject.GetComponent<Nexo>().dano();
@@ -36,10 +37,8 @@ public class ProyectilNexo : ProyectilNexoBase
 
         if (collision.collider.GetComponent<Jugador>())
         {
-            DatosJugador.Instance.MonedasAgarrada(monedasDadas);
-            
-            _audioSource.clip = _golpe;
-            _audioSource.Play();
+            DatosJugador.Instance.monedasConseguidasPorHordas += monedasDadas;
+            DatosJugador.Instance.MonedasAgarrada(monedasDadas);               
             collision.collider.GetComponent<Jugador>().target = null;
             collision.collider.GetComponent<Jugador>().rb.velocity = Vector3.zero;
             collision.collider.GetComponent<Jugador>().Impacto(transform.position);

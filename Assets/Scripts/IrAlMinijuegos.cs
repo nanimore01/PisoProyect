@@ -10,7 +10,7 @@ public class IrAlMinijuegos : MonoBehaviour
     {
         if(_stamina.currentStamina > 0)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(1);
         }
     }
 }

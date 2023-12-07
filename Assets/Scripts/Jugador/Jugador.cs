@@ -24,6 +24,7 @@ public class Jugador : Entity
     bool _runEmpezada = false;
     public bool _isDashing = false;
     public int monedas;
+    [SerializeField]AudioSource _audio;
     private void Awake()
     {
 
@@ -59,12 +60,13 @@ public class Jugador : Entity
 
     public override void Morir()
     {
-        print("Morir");
-        SceneManager.LoadScene(3);
+        DatosJugador.Instance.Save();
+        SceneManager.LoadScene(2);
     }
 
     public void Impacto(Vector3 Objetivo)
     {
+        _audio.Play();
         dir = (Objetivo - transform.position).normalized;
         _runEmpezada = true;
         _isDashing = false;

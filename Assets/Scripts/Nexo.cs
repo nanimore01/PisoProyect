@@ -8,6 +8,7 @@ public class Nexo : MonoBehaviour
     [SerializeField] private int _vidaMax = 5;
     [SerializeField] private int _vida;
     [SerializeField] TextoActualizable texto;
+    [SerializeField] AudioSource _audio;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class Nexo : MonoBehaviour
     {
         _vida--;
         texto.UpdateHUDActualInt(_vida, _vidaMax, " Nexo");
+        _audio.Play();
         if (_vida <= 0)
         {
             print("Sufri mucho daño");

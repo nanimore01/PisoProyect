@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class DatosJugador : MonoBehaviour
 {
     public static DatosJugador Instance;
+
+    
 
     public int vidaMax = 0;
     public float speed = 2;
     public float tiempoDeConcentracion = 3;
     public int monedas = 1;
-
+    public int monedasConseguidasPorHordas;
+    public TextMeshProUGUI textoMonedas;
     private void Awake()
     {
         Save();
@@ -44,6 +47,16 @@ public class DatosJugador : MonoBehaviour
         
     }
     
+    public void ReiniciarStats()
+    {
+        monedasConseguidasPorHordas = 0;
+    }
+
+    public void UpdateText()
+    {
+        textoMonedas.text = "Conseguiste " + monedasConseguidasPorHordas + "$ en esta run";
+    }
+
     public void MonedasAgarrada(int monedasObtenidas)
     {
         print("Moneda Agarrada : " + monedasObtenidas);

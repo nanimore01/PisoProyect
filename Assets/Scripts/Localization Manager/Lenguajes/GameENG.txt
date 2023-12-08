@@ -2,10 +2,12 @@
 "MenuTextoTienda" : "Shop",
 "MenuBotonJugar" : "Play",
 "MenuBotonOpciones" : "Configs",
+"MenuBotonSalir" : "Quit",
 "OpcionesTextoOpciones" : "Configs",
 "OpcionesTextoIdioma" : "Language",
 "OpcionesTextoVolumen" : "Volume",
 "OpcionesTextoMaster" : "Master",
 "OpcionesTextoMusica" : "Music",
-"OpcionesTextoSFX" : "SFX"
+"OpcionesTextoSFX" : "SFX",
+"OpcionesBotonMenu": "Back to Menu"
 }

@@ -2,10 +2,13 @@
 "MenuTextoTienda" : "Tienda",
 "MenuBotonJugar" : "Jugar",
 "MenuBotonOpciones" : "Opciones",
+"MenuBotonSalir" : "Salir al escritorio",
 "OpcionesTextoOpciones" : "Opciones",
 "OpcionesTextoIdioma" : "Idioma",
 "OpcionesTextoVolumen" : "Volumen",
 "OpcionesTextoMaster" : "Master",
 "OpcionesTextoMusica" : "Musica",
-"OpcionesTextoSFX" : "SFX"
+"OpcionesTextoSFX" : "SFX",
+"OpcionesBotonMenu": "Ir al Menu"
+
 }

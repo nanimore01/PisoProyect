@@ -16,12 +16,12 @@ public class Tienda : MonoBehaviour
 
     public void Update()
     {
-        MonedasUpdate();
+        
     }
     public void MonedasUpdate()
     {
         MonedasTexto.text = DatosJugador.Instance.monedas + "$";
-        print("Me actualizo la cantidad de monedas");
+        
     }
 
     public void ComprarPoder(int index)

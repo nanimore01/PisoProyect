@@ -6,12 +6,22 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: 755440b144d147f4abdc41ac1640ad98
+    path: Assets/Scenes/New Menu.unity
+    guid: be37db5edbbb936459c2f1a041b52870
   - enabled: 1
-    path: Assets/Scenes/Minijuego.unity
-    guid: 86a5c24439543e742a5e5a28c172bb56
+    path: Assets/Scenes/ShopMenu.unity
+    guid: f85ba34159b49c549b387fdc0ed793da
   - enabled: 1
-    path: Assets/Scenes/Menu de derrota.unity
-    guid: f5cc29c6f7b20c34f849c353c68e7a89
+    path: Assets/Scenes/IncioDeRun.unity
+    guid: eb5984fca8b4b49488e30823cd28615c
+  - enabled: 1
+    path: Assets/Scenes/Prueba 1.unity
+    guid: 02efcf05c377cf648bb70b1ed70c77b9
+  - enabled: 1
+    path: Assets/Scenes/Prueba 2.unity
+    guid: 762167a70ec72ec4d9a8c72595ecdb81
+  - enabled: 1
+    path: Assets/Scenes/PersistentGameplay.unity
+    guid: a59335bf5c9e23643b71bddc17b0d2ec
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

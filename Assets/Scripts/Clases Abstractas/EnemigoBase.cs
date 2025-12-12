@@ -1,38 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
-
+using UnityEngine.Events;
 public class EnemigoBase : Entity, IDashable
 {
     [Header("Valores")]
     [SerializeField] protected int _monedasDadas;
     [SerializeField] protected float _size;
-
+    [SerializeField] protected BoxCollider _boxC;
     public override void Morir()
     {
-        gameObject.SetActive(false);
+        EventManager.enemy.OnDead?.Invoke();
+        //gameObject.SetActive(true);
+        _boxC.enabled = false;
+    }
+
+    public void SetStats(int monedasDadas, float size)
+    {
+        _monedasDadas = monedasDadas;
+        _size = size;
     }
 
     public void ActiveDash()
     {
-        Jugador.instance._isDashing = true;
-        Jugador.instance.target = transform;
-        Jugador.instance.rb.useGravity = false;
-        Jugador.instance.rb.velocity = Vector3.zero;
+        Debug.Log("Enemigo Targeteado");
+        EventManager.enemy.OnTargetEnemy?.Invoke();
+        EventManager.player.GetTarget?.Invoke(transform);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.GetComponent<Jugador>() != null)
         {
-            collision.collider.GetComponent<Jugador>().target = null;
-            collision.collider.GetComponent<Jugador>().Impacto(transform.position);
-            collision.collider.GetComponent<Jugador>().concentracionTimeCurr = 0;
+            EventManager.enemy.OnHitted?.Invoke();
+            collision.collider.GetComponent<Jugador>().TakeMoney(_monedasDadas);
             Morir();
         }
     }
 
+    
 
 
 }

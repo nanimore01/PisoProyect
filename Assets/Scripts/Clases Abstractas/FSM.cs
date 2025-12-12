@@ -8,7 +8,7 @@ public class FSM
     Dictionary<string, IState> _states = new Dictionary<string, IState>();
 
     IState _actualState;
-
+    public bool isActive = true;
     public void CreateState(string name, IState state)
     {
         if (!_states.ContainsKey(name))
@@ -17,7 +17,8 @@ public class FSM
 
     public void Execute()
     {
-        _actualState.OnUpdate();
+        if(isActive)
+            _actualState.OnUpdate();
     }
 
     public void ChangeState(string name)

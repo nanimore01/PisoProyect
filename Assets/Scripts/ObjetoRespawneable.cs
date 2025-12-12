@@ -9,7 +9,7 @@ public class ObjetoRespawneable : ObjetoBase
         if (collision.collider.GetComponent<Jugador>() != null)
         {
             collision.collider.GetComponent<Jugador>().target = null;
-            StartCoroutine(CooldownRespawn());
+            //StartCoroutine(CooldownRespawn());
             gameObject.SetActive(false);
             
         }

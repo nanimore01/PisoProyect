@@ -5,19 +5,18 @@ using UnityEngine;
 public class AumentoDeConcentracion : PoderBase
 {
     
+    
+
     private void Start()
     {
-        poderNombre = "Aumento de Concentracion";
-        precio = 200;
-
-        textoNombre.text = poderNombre;
+        precio = Mathf.RoundToInt(20 + (10 * _playerStats.stats.concentracionTime));
         textoPrecio.text = precio.ToString();
     }
 
-    public override void Poder()
+    public override void OnBuy(PlayerStatsHolder stats)
     {
-        DatosJugador.Instance.tiempoDeConcentracion++;
-        DatosJugador.Instance.Save();
+        stats.stats.concentracionTime += 0.1f;
+        precio = Mathf.RoundToInt(20 + (10 * stats.stats.concentracionTime));
     }
 
 }

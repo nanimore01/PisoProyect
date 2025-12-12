@@ -3,37 +3,40 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+
 public class Tienda : MonoBehaviour
 {
-    public TextMeshProUGUI MonedasTexto;
-    public PoderBase[] poderes;
+    public PlayerStatsHolder stats;
+    [SerializeField] TMP_Text _moneyText;
+    [SerializeField] Animator _animator;
     [SerializeField] AudioSource _audio;
-
+    [SerializeField] CanvasManager _canvas;
     public void Start()
     {
-        MonedasUpdate();
+
+
+        EventManager.shop.OnShopOpen += UpdateText;
+
+        EventManager.shop.OnShopOpen?.Invoke(stats.stats.monedas);
+        
+        EventManager.shop.OnBuyAnItem += UpdateText;
     }
 
-    public void Update()
+    public void UpdateText(int money)
     {
-        
+        _moneyText.text = money + "$";
     }
-    public void MonedasUpdate()
+
+    public void GoToCanvas()
     {
-        MonedasTexto.text = DatosJugador.Instance.monedas + "$";
+        _canvas.EnableMenu(_animator.GetInteger("Canvas"));
+    }
+
+    public void PlayAnimationGoToShop()
+    {
+        _animator.SetInteger("Canvas", 1);
+        _animator.SetBool("IsActive", false);
         
     }
 
-    public void ComprarPoder(int index)
-    {
-        if (poderes[index].precio <= DatosJugador.Instance.monedas)
-        {
-            _audio.Play();
-            DatosJugador.Instance.monedas -= poderes[index].precio;
-            poderes[index].Poder();
-            DatosJugador.Instance.Save();
-            MonedasUpdate();
-        }
-    }
-   
 }

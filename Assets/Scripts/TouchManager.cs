@@ -16,10 +16,11 @@ public class TouchManager : MonoBehaviour
             if(Physics.Raycast(ray, out hit, _lm))
             {
                 hit.collider.GetComponent<IDashable>().ActiveDash();
+                EventManager.player.TargetOn?.Invoke();
             }
         }
 
         
-        
+
     }
 }

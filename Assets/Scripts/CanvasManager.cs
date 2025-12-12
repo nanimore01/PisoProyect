@@ -7,28 +7,19 @@ public class CanvasManager : MonoBehaviour
 {
     [Header("Screens")]
     [SerializeField] private Canvas[] _menuCanvas;
-
-    [Header("Sliders")]
-    [Range(0.0001f, 1f)][SerializeField] private float _initMusicVol = .125f;
-    [SerializeField] private Slider[] _volumeSliders;
-
-    
-
-
+    [SerializeField] AnimatorOverrideController _animator;
     private void Start()
      {
         if(Time.timeScale == 0)
         {
             Time.timeScale = 1;
         }
-        AudioManager.instance.SetMasterVolume(_initMusicVol);
-         _volumeSliders[0].value = _initMusicVol;
 
          for(int i = 0; i < _menuCanvas.Length; i++)
          {
              if(i != 0)
              {
-                 _menuCanvas[i].enabled = false;
+                 _menuCanvas[i].gameObject.SetActive(false);
              }
          }
      }
@@ -39,11 +30,11 @@ public class CanvasManager : MonoBehaviour
         {
             if (i == menuToShow)
             {
-                _menuCanvas[i].enabled = true;
+                _menuCanvas[i].gameObject.SetActive(true);
             }
             else if (i != menuToShow && _menuCanvas[i].enabled)
             {
-                _menuCanvas[i].enabled = false;
+                _menuCanvas[i].gameObject.SetActive(false);
             }
         }
     }

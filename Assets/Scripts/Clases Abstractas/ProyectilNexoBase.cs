@@ -6,7 +6,7 @@ public class ProyectilNexoBase : MonoBehaviour, IDashable
 {
     [SerializeField] protected float _maxDistance = 5f, _currentDistance = 0f;
     public float speed = 0.01f;
-    [SerializeField] protected int monedasDadas;
+    
     
     
     public void Movimiento()
@@ -22,10 +22,7 @@ public class ProyectilNexoBase : MonoBehaviour, IDashable
     }
     public void ActiveDash()
     {
-        Jugador.instance._isDashing = true;
-        Jugador.instance.target = transform;
-        Jugador.instance.rb.useGravity = false;
-        Jugador.instance.rb.velocity = Vector3.zero;
+        EventManager.player.GetTarget?.Invoke(transform);
     }
 
 

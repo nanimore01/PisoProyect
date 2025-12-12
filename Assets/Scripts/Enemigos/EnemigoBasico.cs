@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class EnemigoBasico : EnemigoBase
 {
-    // Start is called before the first frame update
+    
     void Start()
     {
-        _size = StatsUnidadesEnemigas.EnemigoBasico.size;
-        _monedasDadas = StatsUnidadesEnemigas.EnemigoBasico.monedasDadas;
+       
+        
+        
     }
 
     
+
+    public override void Morir()
+    {
+        EventManager.enemy.OnDead?.Invoke();
+        _animator.SetBool("IsDead", true);
+        _boxC.enabled = false;
+        
+    }
+
 }

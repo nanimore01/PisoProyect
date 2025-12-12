@@ -5,7 +5,7 @@ using UnityEngine;
 public class Config : MonoBehaviour
 {
     public Transform mainGame;
-
+    bool _isPause;
     //public Transform overlayGame;
 
     void Start()
@@ -19,12 +19,13 @@ public class Config : MonoBehaviour
         {
             //ScreenManager.Instance.Push(new ScreenGO(Instantiate(overlayGame)));
         }
-        else if (Input.GetKeyDown(KeyCode.P))
+        else if (Input.GetKeyDown(KeyCode.Escape) && !_isPause)
         {
+            
             var screenPause = Instantiate(Resources.Load<ScreenPause>("Canvas_Pause"));
             ScreenManager.Instance.Push(screenPause);
         }
-        else if (Input.GetKeyDown(KeyCode.Escape))
+        else if (Input.GetKeyDown(KeyCode.Escape) && _isPause)
         {
             ScreenManager.Instance.Pop();
         }

@@ -18,16 +18,16 @@ public class Nexo : MonoBehaviour
             instance = this;
     }
 
-    public void dano()
-    {
-        _vida--;
-        texto.UpdateHUDActualInt(_vida, _vidaMax, " Nexo");
-        _audio.Play();
-        if (_vida <= 0)
-        {
-            print("Sufri mucho daño");
-            Jugador.instance.Morir();  
-        }
-    }
+    //public void dano(int danoRecibido)
+    //{
+    //    _vida -= danoRecibido;
+    //    texto.UpdateHUDActualInt(_vida, _vidaMax, " Nexo");
+    //    _audio.Play();
+    //    if (_vida <= 0)
+    //    {
+    //        print("Sufri mucho daño");
+    //        Jugador.instance.Morir();  
+    //    }
+    //}
     
 }

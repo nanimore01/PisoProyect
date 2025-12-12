@@ -6,17 +6,18 @@ public class AumentoDeVelocidad : PoderBase
 {
     private void Start()
     {
-        poderNombre = "Aumento de velocidad";
-        precio = 20;
 
-        textoNombre.text = poderNombre;
+        precio = Mathf.RoundToInt(10 + (10 * _playerStats.speedStats.maxVelocity));
+
+
+
         textoPrecio.text = precio.ToString();
     }
 
-    public override void Poder()
+    public override void OnBuy(PlayerStatsHolder statsHolder)
     {
+        statsHolder.speedStats.maxVelocity += 0.1f;
         
-        DatosJugador.Instance.speed++;
-        DatosJugador.Instance.Save();
+        precio = Mathf.RoundToInt(10 + (10 * statsHolder.speedStats.maxVelocity));
     }
 }

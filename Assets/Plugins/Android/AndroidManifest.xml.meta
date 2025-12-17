@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.Ignacio More.Piso proyect">
+
+    <!-- REQUIRED for Ads (Google Play policy) -->
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+
+    <application>
+        <!-- Unity will auto-merge its own application data here -->
+    </application>
+
+</manifest>

@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 4d0e0ffc7a6c1bf44b435e0b23260f8c, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1594,9 +1594,69 @@ PrefabInstance:
       propertyPath: m_Name
       value: Score Menu Component
       objectReference: {fileID: 0}
+    - target: {fileID: 3677633671347378300, guid: 0ebc570886962f249b0405a2d9e11f2d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5374792
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677633671347378300, guid: 0ebc570886962f249b0405a2d9e11f2d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.44779667
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677633671347378300, guid: 0ebc570886962f249b0405a2d9e11f2d, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.45418745
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677633671347378300, guid: 0ebc570886962f249b0405a2d9e11f2d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677633671347378300, guid: 0ebc570886962f249b0405a2d9e11f2d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677633671347378300, guid: 0ebc570886962f249b0405a2d9e11f2d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677633671347378300, guid: 0ebc570886962f249b0405a2d9e11f2d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397264181565023409, guid: 0ebc570886962f249b0405a2d9e11f2d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631279328428098190, guid: 0ebc570886962f249b0405a2d9e11f2d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631279328428098190, guid: 0ebc570886962f249b0405a2d9e11f2d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631279328428098190, guid: 0ebc570886962f249b0405a2d9e11f2d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631279328428098190, guid: 0ebc570886962f249b0405a2d9e11f2d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631279328428098190, guid: 0ebc570886962f249b0405a2d9e11f2d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: InitializeAds
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631279328428098190, guid: 0ebc570886962f249b0405a2d9e11f2d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: RewardedAds, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4631279328428098190, guid: 0ebc570886962f249b0405a2d9e11f2d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631279328428098190, guid: 0ebc570886962f249b0405a2d9e11f2d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5041281521758565773, guid: 0ebc570886962f249b0405a2d9e11f2d, type: 3}
       propertyPath: m_text

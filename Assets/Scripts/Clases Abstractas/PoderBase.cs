@@ -19,7 +19,7 @@ public abstract class PoderBase : MonoBehaviour
 
     public void OnTryToBuy(PlayerStatsHolder statsHolder)
     {
-        print(ICanBuyIt(statsHolder.stats.monedas));
+        //print(ICanBuyIt(statsHolder.stats.monedas));
 
         if (statsHolder.stats.monedas > precio && PlayerPrefs.GetInt("Energy") > 0)
         {
